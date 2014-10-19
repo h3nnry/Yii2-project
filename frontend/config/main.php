@@ -45,7 +45,10 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => []
-        ]
+        ],
+        'view' => [
+            'theme' => 'h3nry\themes\frontend\Theme'
+        ],
     ],
     'params' => $params,
 ];
