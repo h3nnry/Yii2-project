@@ -9,21 +9,19 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>Please fill out the following fields to login:</p>
-
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-                <?= $form->field($model, 'username') ?>
-                <?= $form->field($model, 'password')->passwordInput() ?>
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
-            <?php ActiveForm::end(); ?>
+<div class="form-box" id="login-box">
+    <div class="header"><?php echo Html::encode($this->title); ?></div>
+    <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+    <div class="body bg-gray">
+        <?= $form->field($model, 'username')->textInput(['placeholder' => $model->getAttributeLabel('username')])->label(false) ?>
+        <?= $form->field($model, 'password')->passwordInput(['placeholder' => $model->getAttributeLabel('password')])->label(false) ?>
+        <?= $form->field($model, 'rememberMe')->checkbox(['style'=>'display:block; z-index:1000']) ?>
+        <div style="color:#999;margin:1em 0">
+            If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
         </div>
     </div>
+    <div class="footer">
+        <?= Html::submitButton('Login', ['class' => 'btn bg-olive btn-block']) ?>
+    </div>
+    <?php ActiveForm::end(); ?>
 </div>

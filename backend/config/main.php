@@ -35,6 +35,15 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'urlManager' => [
+            'baseUrl' => $baseUrl,
+            'enablePrettyUrl' => true,
+//            'showScriptName' => false,
+//              'rules' => []
+        ],
+        'view' => [
+            'theme' => 'h3nry\themes\backend\Theme'
+        ],
     ],
     'params' => $params,
 ];
